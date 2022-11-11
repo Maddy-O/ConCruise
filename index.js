@@ -4,11 +4,14 @@ const connect = require("./configs/database");
 
 const userController = require("./controllers/user.controller");
 
-const PORT = 5000;
+const cors = require("cors");
+
+const PORT = process.env.PORT || 5500;
 
 const app = express();
 
 app.use(express.json());
+app.use(cors());
 
 app.use("/user", userController);
 
